@@ -525,6 +525,9 @@ export const ChartEditorFC: FC<{}> = function ChartEditorFC({}) {
 
     const config = useSelector((state: DataFormulatorState) => state.config);
     const serverConfig = useSelector((state: DataFormulatorState) => state.serverConfig);
+    const theme = useTheme();
+    const appLanguage = useAppLanguage();
+    const text = visText[appLanguage];
     const componentRef = useRef<HTMLHeadingElement>(null);
 
     // Add ref for the container box that holds all exploration components
