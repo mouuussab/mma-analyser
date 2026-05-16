@@ -62,7 +62,7 @@ package-dir = {"" = "py-src"}
 include-package-data = true
 
 [project.scripts]
-data_formulator = "data_formulator:run_app"
+mma_analyser = "data_formulator:run_app"
 
 [tool.uv]
 dev-dependencies = [
