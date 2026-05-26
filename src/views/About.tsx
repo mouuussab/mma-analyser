@@ -243,7 +243,7 @@ export const About: FC<{}> = function About({ }) {
                         target="_blank" 
                         rel="noopener noreferrer" 
                         aria-label="Contact Us (opens in new tab)"
-                        href="https://github.com/microsoft/data-formulator/issues">Contact Us</Button>
+                        href="https://github.com/mouuussab/rivus-ai/issues">Contact Us</Button>
                 <Typography component="span" sx={{ fontSize: '12px', ml: 1 }}>© {new Date().getFullYear()}</Typography>
             </Box>
         </Box>)
