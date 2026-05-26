@@ -213,7 +213,7 @@ ${JSON.stringify(modifiedSpec, null, 2)}
             result = result.replace(original, specReplacement);
         }
 
-        result += '\n\n---\ncreated with AI using [Data Formulator](https://github.com/microsoft/data-formulator)\n\n';
+        result += '\n\n---\ncreated with AI using [RIVUS](https://github.com/mouuussab/rivus-ai)\n\n';
 
         // Prepend CSS styling based on report type
         const cssStyles = generateStyleCSS(reportStyle);

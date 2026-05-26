@@ -504,12 +504,12 @@ export const RefreshDataDialog: React.FC<RefreshDataDialogProps> = ({
                             <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.75rem' }}>
                                 Install RIVUS locally to enable file upload. <br />
                                 <Link 
-                                    href="https://github.com/microsoft/data-formulator" 
+                                    href="https://github.com/mouuussab/rivus-ai" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     sx={{ fontSize: '0.75rem' }}
                                 >
-                                    https://github.com/microsoft/data-formulator
+                                    https://github.com/mouuussab/rivus-ai
                                 </Link>
                             </Typography>
                         </Box>

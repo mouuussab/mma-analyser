@@ -80,7 +80,7 @@ export const About: FC<{}> = function About({ }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View on GitHub (opens in new tab)"
-                href="https://github.com/microsoft/data-formulator"
+                href="https://github.com/mouuussab/rivus-ai"
             >GitHub</Button>
         </Box>
     );

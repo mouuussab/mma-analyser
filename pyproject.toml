@@ -53,9 +53,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/microsoft/data-formulator"
-Repository = "https://github.com/microsoft/data-formulator.git"
-"Bug Tracker" = "https://github.com/microsoft/data-formulator/issues"
+Homepage = "https://github.com/mouuussab/rivus-ai"
+Repository = "https://github.com/mouuussab/rivus-ai.git"
+"Bug Tracker" = "https://github.com/mouuussab/rivus-ai/issues"
 
 [tool.setuptools]
 package-dir = {"" = "py-src"}
