@@ -21,7 +21,7 @@ yarnpkg install
 ### 2) Start backend (terminal 1)
 
 ```bash
-uv run mma_analyser --dev
+uv run rivus-ai --dev
 ```
 
 ### 3) Start frontend (terminal 2)

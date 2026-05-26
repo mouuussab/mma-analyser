@@ -7,7 +7,7 @@ Thanks for your interest in improving RIVUS.
 1. Fork the repository and create a feature branch.
 2. Make focused changes with clear commit messages.
 3. Run the app locally to ensure your changes work:
-   - `uv run mma_analyser --dev`
+   - `uv run rivus-ai --dev`
    - `yarnpkg start`
 4. Open a pull request with:
    - What changed

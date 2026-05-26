@@ -11,7 +11,7 @@ set FLASK_RUN_PORT=5567
 :: Use uv if available, otherwise fall back to python
 where uv >nul 2>nul
 if %ERRORLEVEL% EQU 0 (
-    uv run data_formulator --port %FLASK_RUN_PORT% --dev
+    uv run rivus-ai --port %FLASK_RUN_PORT% --dev
 ) else (
     python -m data_formulator.app --port %FLASK_RUN_PORT% --dev
 )

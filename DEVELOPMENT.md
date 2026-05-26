@@ -14,14 +14,14 @@ How to set up your local machine.
 uv is faster and provides reproducible builds via lockfile.
 
 ```bash
-uv sync                        # Creates .venv and installs all dependencies
-uv run data_formulator         # Run app (opens browser automatically)
-uv run data_formulator --dev   # Run backend only (for frontend development)
+uv sync                      # Creates .venv and installs all dependencies
+uv run rivus-ai               # Run app (opens browser automatically)
+uv run rivus-ai --dev         # Run backend only (for frontend development)
 ```
 
 **Which command to use:**
-- **End users / testing the full app**: `uv run data_formulator` - starts server and opens browser to http://localhost:5567
-- **Frontend development**: `uv run data_formulator --dev` - starts backend server only, then run `yarn start` separately for the Vite dev server on http://localhost:5173
+- **End users / testing the full app**: `uv run rivus-ai` - starts server and opens browser to http://localhost:5567
+- **Frontend development**: `uv run rivus-ai --dev` - starts backend server only, then run `yarn start` separately for the Vite dev server on http://localhost:5173
 
 ### Option 2: With pip (fallback)
 
@@ -53,8 +53,8 @@ uv run data_formulator --dev   # Run backend only (for frontend development)
     .\local_server.bat
     
     # Or directly
-    data_formulator         # Opens browser automatically
-    data_formulator --dev   # Backend only (for frontend development)
+    rivus-ai               # Opens browser automatically
+    rivus-ai --dev         # Backend only (for frontend development)
     ```
 
 ## Frontend (TypeScript)
@@ -69,7 +69,7 @@ uv run data_formulator --dev   # Run backend only (for frontend development)
 
     First, start the backend server (in a separate terminal):
     ```bash
-    uv run data_formulator --dev   # or ./local_server.sh
+    uv run rivus-ai --dev   # or ./local_server.sh
     ```
 
     Then, run the frontend in development mode with hot reloading:
@@ -109,11 +109,11 @@ uv run data_formulator --dev   # Run backend only (for frontend development)
     pip install dist/data_formulator-<version>-py3-none-any.whl 
     ```
 
-    Once installed, you can run Data Formulator with:
+    Once installed, you can run RIVUS with:
     ```bash
-    data_formulator
+    rivus-ai
     ```
-    or 
+    or (module entrypoint)
     ```bash
     python -m data_formulator
     ```
@@ -185,13 +185,13 @@ By default, workspace data (uploaded files, parquet tables, metadata) is stored 
 5. **Run normally:**
 
    ```bash
-   uv run data_formulator --dev
+   uv run rivus-ai --dev
    ```
 
    Or pass as CLI flags:
 
    ```bash
-   data_formulator --workspace-backend azure_blob \
+   rivus-ai --workspace-backend azure_blob \
      --azure-blob-connection-string "DefaultEndpointsProtocol=https;AccountName=..."
    ```
 

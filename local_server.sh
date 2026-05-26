@@ -9,7 +9,7 @@ export FLASK_RUN_PORT=5567
 
 # Use uv if available, otherwise fall back to python
 if command -v uv &> /dev/null; then
-    uv run data_formulator --port ${FLASK_RUN_PORT} --dev
+    uv run rivus-ai --port ${FLASK_RUN_PORT} --dev
 else
     python -m data_formulator.app --port ${FLASK_RUN_PORT} --dev
 fi
