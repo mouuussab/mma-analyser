@@ -2,7 +2,7 @@
 
 ## Our standard
 
-MMA Analyser is a collaborative project. Be respectful, constructive, and professional in all discussions and contributions.
+RIVUS is a collaborative project. Be respectful, constructive, and professional in all discussions and contributions.
 
 ## Expected behavior
 

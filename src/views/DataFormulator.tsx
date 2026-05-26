@@ -59,12 +59,12 @@ const pageText: Record<AppLanguage, {
     en: {
         subtitle: "Explore data with visualizations, powered by AI agents.",
         firstModel: "First, let's",
-        modelTip: "Models with strong code generation capabilities provide the best experience with MMA Analyser.",
+        modelTip: "Models with strong code generation capabilities provide the best experience with RIVUS.",
     },
     fr: {
         subtitle: "Explorez les donnees avec des visualisations, alimentees par des agents IA.",
         firstModel: "Commencez par",
-        modelTip: "Les modeles avec de bonnes capacites de generation de code offrent la meilleure experience avec MMA Analyser.",
+        modelTip: "Les modeles avec de bonnes capacites de generation de code offrent la meilleure experience avec RIVUS.",
     },
 };
 

@@ -1,6 +1,6 @@
-# MMA Analyser
+# RIVUS
 
-MMA Analyser is an AI-powered web app for exploring, transforming, and visualizing MMA-related data.
+RIVUS is an AI-powered web app for exploring, transforming, and visualizing MMA-related data.
 
 It combines:
 - **Python backend** for data processing and API routes

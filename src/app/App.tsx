@@ -115,7 +115,7 @@ declare module '@mui/material/styles' {
     }
 }
 
-export const toolName = "MMA Analyser"
+export const toolName = "RIVUS"
 type AppLanguage = "en" | "fr";
 
 const appText: Record<AppLanguage, {

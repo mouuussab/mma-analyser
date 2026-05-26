@@ -1092,7 +1092,7 @@ export const UnifiedDataUploadDialog: React.FC<UnifiedDataUploadDialogProps> = (
                                 </ToggleButton>
                             <ToggleButton value="disk" disabled={diskPersistenceDisabled}>
                                 <Tooltip title={diskPersistenceDisabled
-                                    ? 'Install MMA Analyser locally to unlock analysis for large datasets'
+                                    ? 'Install RIVUS locally to unlock analysis for large datasets'
                                     : serverConfig.WORKSPACE_BACKEND === 'azure_blob'
                                         ? 'Data stored in Azure Blob Storage (supports large tables)'
                                         : 'Data stored in workspace on disk (supports large tables)'} placement="bottom">

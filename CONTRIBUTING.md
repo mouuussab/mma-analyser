@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in improving MMA Analyser.
+Thanks for your interest in improving RIVUS.
 
 ## How to contribute
 

@@ -30,7 +30,6 @@ import {
 import Masonry from '@mui/lab/Masonry';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import CreateChartifact from '@mui/icons-material/Description';
 import EditIcon from '@mui/icons-material/Edit';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import HistoryIcon from '@mui/icons-material/History';
@@ -50,7 +49,6 @@ import { AppDispatch } from '../app/store';
 import { Collapse } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import { convertToChartifact, openChartifactViewer } from './ChartifactDialog';
 import { StreamIcon } from '../icons';
 import { getLocalizedChartType } from '../components/ChartTemplates';
 import { useAppLanguage } from '../hooks/useAppLanguage';
@@ -242,8 +240,6 @@ const reportText: Record<'en' | 'fr', {
     showAllReports: string;
     reports: string;
     deleteReport: string;
-    createChartifactReport: string;
-    createChartifact: string;
     shareReportAsImage: string;
     copied: string;
     shareImage: string;
@@ -276,8 +272,6 @@ const reportText: Record<'en' | 'fr', {
         showAllReports: 'show all reports',
         reports: 'reports',
         deleteReport: 'Delete report',
-        createChartifactReport: 'Create Chartifact report',
-        createChartifact: 'Create Chartifact',
         shareReportAsImage: 'Share report as image',
         copied: 'Copied!',
         shareImage: 'Share Image',
@@ -310,8 +304,6 @@ const reportText: Record<'en' | 'fr', {
         showAllReports: 'afficher tous les rapports',
         reports: 'rapports',
         deleteReport: 'Supprimer le rapport',
-        createChartifactReport: 'Creer un rapport Chartifact',
-        createChartifact: 'Creer Chartifact',
         shareReportAsImage: "Partager le rapport en image",
         copied: 'Copie !',
         shareImage: "Partager l'image",
@@ -1315,35 +1307,6 @@ export const ReportView: FC = () => {
                             {/* Action Buttons */}
                             {currentReportId && (
                                 <Box sx={{ position: 'absolute', top: 16, right: 16, zIndex: 10, display: 'flex', gap: 1 }}>
-                                    <Tooltip title={t.createChartifactReport}>
-                                        <Button
-                                            variant="contained"
-                                            size="small"
-                                            onClick={() => {
-                                                // Convert report to Chartifact markdown format
-                                                const chartifactMarkdown = convertToChartifact(
-                                                    generatedReport,
-                                                    generatedStyle,
-                                                    charts,
-                                                    tables,
-                                                    conceptShelfItems,
-                                                    config
-                                                );
-                                                openChartifactViewer(chartifactMarkdown);
-                                            }}
-                                            sx={{
-                                                textTransform: 'none',
-                                                backgroundColor: 'primary.main',
-                                                color: 'white',
-                                                '&:hover': {
-                                                    backgroundColor: 'primary.dark',
-                                                },
-                                            }}
-                                            startIcon={<CreateChartifact />}
-                                        >
-                                            {t.createChartifact}
-                                        </Button>
-                                    </Tooltip>
                                     <Tooltip title={t.shareReportAsImage}>
                                         <Button
                                             variant="contained"

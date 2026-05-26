@@ -285,7 +285,7 @@ export const loadTable = createAsyncThunk<
             const storageLabel = workspaceBackend === 'azure_blob' ? 'Azure' : 'Disk';
             const baseMsg = `Table "${finalTable.displayId || finalTable.id}" was truncated from ${originalRowCount.toLocaleString()} to ${frontendRowLimit.toLocaleString()} rows (browser limit).`;
             const installHint = diskDisabled
-                ? ` To load the full dataset, install MMA Analyser locally and use disk storage.`
+                ? ` To load the full dataset, install RIVUS locally and use disk storage.`
                 : ` To load the full dataset, switch to "${storageLabel}" storage mode.`;
             dispatch(dfActions.addMessages({
                 timestamp: Date.now(),

@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-If you discover a security issue in MMA Analyser, please **do not open a public GitHub issue**.
+If you discover a security issue in RIVUS, please **do not open a public GitHub issue**.
 
 Report it privately by email to: **ms.bousalem@gmail.com**
 
@@ -23,4 +23,4 @@ Please include:
 
 ## Scope
 
-This policy applies to this repository and maintained releases of MMA Analyser.
+This policy applies to this repository and maintained releases of RIVUS.

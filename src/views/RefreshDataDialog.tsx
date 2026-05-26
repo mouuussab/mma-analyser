@@ -502,7 +502,7 @@ export const RefreshDataDialog: React.FC<RefreshDataDialogProps> = ({
                                 File upload is disabled in this environment.
                             </Typography>
                             <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.75rem' }}>
-                                Install MMA Analyser locally to enable file upload. <br />
+                                Install RIVUS locally to enable file upload. <br />
                                 <Link 
                                     href="https://github.com/microsoft/data-formulator" 
                                     target="_blank" 
