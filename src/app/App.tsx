@@ -145,7 +145,7 @@ const appText: Record<AppLanguage, {
     exportToFile: string;
     importFromFile: string;
     installLocallyFeature: string;
-    mmaResearch: string;
+    rivusResearch: string;
     settings: string;
     colorTheme: string;
     frontend: string;
@@ -197,7 +197,7 @@ const appText: Record<AppLanguage, {
         exportToFile: "Export to file",
         importFromFile: "Import from file",
         installLocallyFeature: "Install locally to use this feature",
-        mmaResearch: "RIVUS Research",
+        rivusResearch: "RIVUS Research",
         settings: "Settings",
         colorTheme: "Color Theme",
         frontend: "Frontend",
@@ -287,7 +287,7 @@ const appText: Record<AppLanguage, {
         exportToFile: "Exporter vers un fichier",
         importFromFile: "Importer depuis un fichier",
         installLocallyFeature: "Installez localement pour utiliser cette fonctionnalite",
-        mmaResearch: "RIVUS Research",
+        rivusResearch: "RIVUS Research",
         settings: "Parametres",
         colorTheme: "Theme de couleur",
         frontend: "Interface",
@@ -1105,10 +1105,10 @@ export const AppFC: FC<AppFCProps> = function AppFC(appProps) {
     const rawPaletteKey = useSelector((state: DataFormulatorState) => state.config.paletteKey);
     const activePaletteKey = (rawPaletteKey && palettes[rawPaletteKey]) ? rawPaletteKey : defaultPaletteKey;
     const [themeMode, setThemeMode] = useState<"light" | "dark">(() => (
-        (localStorage.getItem("mma-theme-mode") as "light" | "dark" | null) ?? "light"
+        (localStorage.getItem("rivus-theme-mode") as "light" | "dark" | null) ?? "light"
     ));
     const [language, setLanguage] = useState<AppLanguage>(() => (
-        (localStorage.getItem("mma-language") as AppLanguage | null) ?? "en"
+        (localStorage.getItem("rivus-language") as AppLanguage | null) ?? "en"
     ));
     const text = appText[language];
 
@@ -1165,12 +1165,12 @@ export const AppFC: FC<AppFCProps> = function AppFC(appProps) {
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("mma-theme-mode", themeMode);
+        localStorage.setItem("rivus-theme-mode", themeMode);
         document.body.setAttribute("data-theme-mode", themeMode);
     }, [themeMode]);
 
     useEffect(() => {
-        localStorage.setItem("mma-language", language);
+        localStorage.setItem("rivus-language", language);
         document.body.setAttribute("data-language", language);
     }, [language]);
 
@@ -1302,7 +1302,7 @@ export const AppFC: FC<AppFCProps> = function AppFC(appProps) {
                 </Box>
                 {tables.length === 0 && (
                     <Typography noWrap sx={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', fontWeight: 500, fontSize: '0.65rem', color: 'text.disabled', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-                        {text.mmaResearch}
+                        {text.rivusResearch}
                     </Typography>
                 )}
                 {isAppPage && (

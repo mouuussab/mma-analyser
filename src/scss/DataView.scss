@@ -24,7 +24,7 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    background-color: var(--mma-panel-soft-bg);
+    background-color: var(--rivus-panel-soft-bg);
 }
 
 .table-header-icon {
@@ -53,7 +53,7 @@
 .table-box {
     height: 100%;
     margin: 0px;
-    background: var(--mma-panel-bg);
+    background: var(--rivus-panel-bg);
 }
 
 .table-footer-container {
@@ -70,7 +70,7 @@
     .table-footer-number {
         font-size: small;
         line-height: 1.5;
-        color: var(--mma-muted-text);
+        color: var(--rivus-muted-text);
     }
 }
 
@@ -98,14 +98,14 @@ span.bold {
 
     &.derived {
         .data-view-header-container {
-            background-color: var(--mma-derived-bg);
+            background-color: var(--rivus-derived-bg);
             border-bottom: 2px solid #ffd700;
         }
     }
 
     &.custom {
         .data-view-header-container {
-            background-color: var(--mma-custom-bg);
+            background-color: var(--rivus-custom-bg);
             border-bottom: 2px solid #ffb395;
         }
     }

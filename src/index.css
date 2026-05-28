@@ -12,19 +12,19 @@ body {
 }
 
 :root {
-    --mma-panel-bg: #ffffff;
-    --mma-panel-soft-bg: #fafafa;
-    --mma-muted-text: rgba(0, 0, 0, 0.54);
-    --mma-derived-bg: #fffef1;
-    --mma-custom-bg: #fff9f8;
+    --rivus-panel-bg: #ffffff;
+    --rivus-panel-soft-bg: #fafafa;
+    --rivus-muted-text: rgba(0, 0, 0, 0.54);
+    --rivus-derived-bg: #fffef1;
+    --rivus-custom-bg: #fff9f8;
 }
 
 body[data-theme-mode="dark"] {
-    --mma-panel-bg: #111827;
-    --mma-panel-soft-bg: #1f2937;
-    --mma-muted-text: rgba(255, 255, 255, 0.72);
-    --mma-derived-bg: rgba(255, 215, 0, 0.12);
-    --mma-custom-bg: rgba(255, 179, 149, 0.14);
+    --rivus-panel-bg: #111827;
+    --rivus-panel-soft-bg: #1f2937;
+    --rivus-muted-text: rgba(255, 255, 255, 0.72);
+    --rivus-derived-bg: rgba(255, 215, 0, 0.12);
+    --rivus-custom-bg: rgba(255, 179, 149, 0.14);
 }
 
 #root {

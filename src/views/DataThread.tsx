@@ -1780,7 +1780,7 @@ const ChartThumbnail: FC<{
                     <Box className={"vega-thumbnail"}
                         sx={{
                             display: "flex",
-                            backgroundColor: chart.saved ? "rgba(255,215,0,0.05)" : "var(--mma-panel-bg)",
+                            backgroundColor: chart.saved ? "rgba(255,215,0,0.05)" : "var(--rivus-panel-bg)",
                             justifyContent: 'center',
                             alignItems: 'center',
                             minHeight: 48,
@@ -1815,7 +1815,7 @@ const ChartThumbnail: FC<{
                 <Box className={"vega-thumbnail"}
                     sx={{
                         display: "flex",
-                        backgroundColor: chart.saved ? "rgba(255,215,0,0.05)" : "var(--mma-panel-bg)",
+                        backgroundColor: chart.saved ? "rgba(255,215,0,0.05)" : "var(--rivus-panel-bg)",
                         justifyContent: 'center',
                         alignItems: 'center',
                         minHeight: 60,

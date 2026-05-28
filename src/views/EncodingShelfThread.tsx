@@ -63,7 +63,7 @@ export let ChartElementFC: FC<{
     if (chart.thumbnail) {
         return (
             <Box sx={{ margin: "auto", display: 'flex', justifyContent: 'center', alignItems: 'center',
-                       backgroundColor: chart.saved ? "rgba(255,215,0,0.05)" : "var(--mma-panel-bg)" }}>
+                       backgroundColor: chart.saved ? "rgba(255,215,0,0.05)" : "var(--rivus-panel-bg)" }}>
                 <img 
                     src={chart.thumbnail} 
                     alt={`${getLocalizedChartType(chart.chartType, language)} ${language === 'fr' ? 'graphique' : 'chart'}`}
