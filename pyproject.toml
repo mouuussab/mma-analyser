@@ -3,7 +3,7 @@ requires = [ "setuptools >= 75.0" ]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "data_formulator"
+name = "rivus-ai"
 version = "0.7.0a1"
 
 requires-python = ">=3.11"
@@ -13,7 +13,7 @@ authors = [
 ]
 readme = "README.md"
 license = "MIT"
-description = "Data Formulator is research protoype data visualization tool powered by AI."
+description = "RIVUS is a data visualization tool powered by AI."
 keywords = ["data visualization", "LLM", "AI"]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -62,7 +62,7 @@ package-dir = {"" = "py-src"}
 include-package-data = true
 
 [project.scripts]
-rivus-ai = "data_formulator:run_app"
+rivus-ai = "rivus_ai:run_app"
 
 [tool.uv]
 dev-dependencies = [

@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.11"
 resolution-markers = [
     "python_full_version >= '3.14'",
@@ -708,83 +708,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/6d/e4/15a253f9b4bf8d008c31e176c162d2704a7e0c5e24d35942f759df107b68/curl_cffi-0.13.0-cp39-abi3-win_amd64.whl", hash = "sha256:66a6b75ce971de9af64f1b6812e275f60b88880577bac47ef1fa19694fa21cd3", size = 1614510, upload-time = "2025-08-06T13:05:40.451Z" },
     { url = "https://files.pythonhosted.org/packages/f9/0f/9c5275f17ad6ff5be70edb8e0120fdc184a658c9577ca426d4230f654beb/curl_cffi-0.13.0-cp39-abi3-win_arm64.whl", hash = "sha256:d438a3b45244e874794bc4081dc1e356d2bb926dcc7021e5a8fef2e2105ef1d8", size = 1365753, upload-time = "2025-08-06T13:05:41.879Z" },
 ]
-
-[[package]]
-name = "data-formulator"
-version = "0.7.0a1"
-source = { editable = "." }
-dependencies = [
-    { name = "azure-identity" },
-    { name = "azure-keyvault-secrets" },
-    { name = "azure-kusto-data" },
-    { name = "azure-storage-blob" },
-    { name = "backoff" },
-    { name = "beautifulsoup4" },
-    { name = "boto3" },
-    { name = "connectorx" },
-    { name = "db-dtypes" },
-    { name = "duckdb" },
-    { name = "flask" },
-    { name = "flask-cors" },
-    { name = "flask-limiter" },
-    { name = "google-auth" },
-    { name = "google-cloud-bigquery" },
-    { name = "jupyter" },
-    { name = "litellm" },
-    { name = "numpy" },
-    { name = "openai" },
-    { name = "pandas" },
-    { name = "pyarrow" },
-    { name = "pymongo" },
-    { name = "pymysql" },
-    { name = "pyodbc" },
-    { name = "python-dotenv" },
-    { name = "scikit-learn" },
-    { name = "vega-datasets" },
-    { name = "vl-convert-python" },
-    { name = "yfinance" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "build" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "azure-identity" },
-    { name = "azure-keyvault-secrets" },
-    { name = "azure-kusto-data" },
-    { name = "azure-storage-blob" },
-    { name = "backoff" },
-    { name = "beautifulsoup4" },
-    { name = "boto3" },
-    { name = "connectorx", specifier = ">=0.4.5" },
-    { name = "db-dtypes" },
-    { name = "duckdb" },
-    { name = "flask" },
-    { name = "flask-cors" },
-    { name = "flask-limiter" },
-    { name = "google-auth" },
-    { name = "google-cloud-bigquery" },
-    { name = "jupyter" },
-    { name = "litellm" },
-    { name = "numpy" },
-    { name = "openai" },
-    { name = "pandas" },
-    { name = "pyarrow", specifier = ">=23.0.0" },
-    { name = "pymongo" },
-    { name = "pymysql" },
-    { name = "pyodbc" },
-    { name = "python-dotenv" },
-    { name = "scikit-learn" },
-    { name = "vega-datasets" },
-    { name = "vl-convert-python" },
-    { name = "yfinance" },
-]
-
-[package.metadata.requires-dev]
-dev = [{ name = "build" }]
 
 [[package]]
 name = "db-dtypes"
@@ -3508,6 +3431,83 @@ sdist = { url = "https://files.pythonhosted.org/packages/2c/06/37c1a5557acf449e8
 wheels = [
     { url = "https://files.pythonhosted.org/packages/7e/71/44ce230e1b7fadd372515a97e32a83011f906ddded8d03e3c6aafbdedbb7/rfc3987_syntax-1.1.0-py3-none-any.whl", hash = "sha256:6c3d97604e4c5ce9f714898e05401a0445a641cfa276432b0a648c80856f6a3f", size = 8046, upload-time = "2025-07-18T01:05:03.843Z" },
 ]
+
+[[package]]
+name = "rivus-ai"
+version = "0.7.0a1"
+source = { editable = "." }
+dependencies = [
+    { name = "azure-identity" },
+    { name = "azure-keyvault-secrets" },
+    { name = "azure-kusto-data" },
+    { name = "azure-storage-blob" },
+    { name = "backoff" },
+    { name = "beautifulsoup4" },
+    { name = "boto3" },
+    { name = "connectorx" },
+    { name = "db-dtypes" },
+    { name = "duckdb" },
+    { name = "flask" },
+    { name = "flask-cors" },
+    { name = "flask-limiter" },
+    { name = "google-auth" },
+    { name = "google-cloud-bigquery" },
+    { name = "jupyter" },
+    { name = "litellm" },
+    { name = "numpy" },
+    { name = "openai" },
+    { name = "pandas" },
+    { name = "pyarrow" },
+    { name = "pymongo" },
+    { name = "pymysql" },
+    { name = "pyodbc" },
+    { name = "python-dotenv" },
+    { name = "scikit-learn" },
+    { name = "vega-datasets" },
+    { name = "vl-convert-python" },
+    { name = "yfinance" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "build" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "azure-identity" },
+    { name = "azure-keyvault-secrets" },
+    { name = "azure-kusto-data" },
+    { name = "azure-storage-blob" },
+    { name = "backoff" },
+    { name = "beautifulsoup4" },
+    { name = "boto3" },
+    { name = "connectorx", specifier = ">=0.4.5" },
+    { name = "db-dtypes" },
+    { name = "duckdb" },
+    { name = "flask" },
+    { name = "flask-cors" },
+    { name = "flask-limiter" },
+    { name = "google-auth" },
+    { name = "google-cloud-bigquery" },
+    { name = "jupyter" },
+    { name = "litellm" },
+    { name = "numpy" },
+    { name = "openai" },
+    { name = "pandas" },
+    { name = "pyarrow", specifier = ">=23.0.0" },
+    { name = "pymongo" },
+    { name = "pymysql" },
+    { name = "pyodbc" },
+    { name = "python-dotenv" },
+    { name = "scikit-learn" },
+    { name = "vega-datasets" },
+    { name = "vl-convert-python" },
+    { name = "yfinance" },
+]
+
+[package.metadata.requires-dev]
+dev = [{ name = "build" }]
 
 [[package]]
 name = "rpds-py"

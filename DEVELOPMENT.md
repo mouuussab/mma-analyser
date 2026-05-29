@@ -1,4 +1,4 @@
-# Set up a local Data Formulator development environment
+# Set up a local RIVUS development environment
 How to set up your local machine.
 
 ## Prerequisites
@@ -41,7 +41,7 @@ uv run rivus-ai --dev         # Run backend only (for frontend development)
         - **API keys**: set `{PROVIDER}_ENABLED=true`, `{PROVIDER}_API_KEY=...`, and `{PROVIDER}_MODELS=...` for each LLM provider you want to use. See the [LiteLLM setup](https://docs.litellm.ai/docs#litellm-python-sdk) guide for provider-specific fields.
         - **Server settings**: `DISABLE_DISPLAY_KEYS`, `SANDBOX`, etc.
         - **Azure Blob workspace** (optional): see [Azure Blob Storage Workspace](#azure-blob-storage-workspace) below.
-    - this lets Data Formulator automatically load API keys at startup so you don't need to enter them in the UI.
+    - this lets RIVUS automatically load API keys at startup so you don't need to enter them in the UI.
 
 
 - **Run the app**
@@ -87,7 +87,7 @@ uv run rivus-ai --dev         # Run backend only (for frontend development)
     ```bash
     yarn build
     ```
-    This builds the app for production to the `py-src/data_formulator/dist` folder.  
+    This builds the app for production to the `py-src/rivus_ai/dist` folder.  
 
     Then, build python package:
 
@@ -99,14 +99,14 @@ uv run rivus-ai --dev         # Run backend only (for frontend development)
     pip install build
     python -m build
     ```
-    This will create a python wheel in the `dist/` folder. The name would be `data_formulator-<version>-py3-none-any.whl`
+    This will create a python wheel in the `dist/` folder. The name would be `rivus_ai-<version>-py3-none-any.whl`
 
 - **Test the artifact**
 
     You can then install the build result wheel (testing in a virtual environment is recommended):
     ```bash
     # replace <version> with the actual build version. 
-    pip install dist/data_formulator-<version>-py3-none-any.whl 
+    pip install dist/rivus_ai-<version>-py3-none-any.whl 
     ```
 
     Once installed, you can run RIVUS with:
@@ -115,7 +115,7 @@ uv run rivus-ai --dev         # Run backend only (for frontend development)
     ```
     or (module entrypoint)
     ```bash
-    python -m data_formulator
+    python -m rivus_ai
     ```
 
     Open [http://localhost:5567](http://localhost:5567) to view it in the browser.
@@ -132,24 +132,24 @@ AI-generated Python code runs inside a **sandbox** to isolate it from the main s
 
 ```bash
 # Use the default local sandbox
-python -m data_formulator
+python -m rivus_ai
 
 # Use Docker sandbox (requires Docker daemon)
-python -m data_formulator --sandbox docker
+python -m rivus_ai --sandbox docker
 ```
 
-The Docker sandbox image is built from `py-src/data_formulator/sandbox/Dockerfile.sandbox`:
+The Docker sandbox image is built from `py-src/rivus_ai/sandbox/Dockerfile.sandbox`:
 
 ```bash
-docker build -t data-formulator-sandbox -f py-src/data_formulator/sandbox/Dockerfile.sandbox .
+docker build -t rivus-sandbox -f py-src/rivus_ai/sandbox/Dockerfile.sandbox .
 ```
 
-Source: [`py-src/data_formulator/sandbox/`](py-src/data_formulator/sandbox/)
+Source: [`py-src/rivus_ai/sandbox/`](py-src/rivus_ai/sandbox/)
 
 
 ## Azure Blob Storage Workspace
 
-By default, workspace data (uploaded files, parquet tables, metadata) is stored on the **local filesystem** under `~/.data_formulator/workspaces/`. For cloud deployments you can switch to **Azure Blob Storage** so all workspace data lives in a blob container instead.
+By default, workspace data (uploaded files, parquet tables, metadata) is stored on the **local filesystem** under `~/.rivus_ai/workspaces/`. For cloud deployments you can switch to **Azure Blob Storage** so all workspace data lives in a blob container instead.
 
 ### Quick start (local dev with connection string)
 
@@ -165,7 +165,7 @@ By default, workspace data (uploaded files, parquet tables, metadata) is stored 
 
    ```bash
    az storage account create -n <account> -g <resource-group> -l eastus --sku Standard_LRS
-   az storage container create -n data-formulator --account-name <account>
+   az storage container create -n rivus-ai --account-name <account>
    ```
 
 3. **Get the connection string:**
@@ -179,7 +179,7 @@ By default, workspace data (uploaded files, parquet tables, metadata) is stored 
    ```env
    WORKSPACE_BACKEND=azure_blob
    AZURE_BLOB_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=...
-   # AZURE_BLOB_CONTAINER=data-formulator   # default, change if needed
+   # AZURE_BLOB_CONTAINER=rivus   # default, change if needed
    ```
 
 5. **Run normally:**
@@ -223,7 +223,7 @@ In production (Azure App Service, AKS, etc.) you can authenticate the app to blo
    ```env
    WORKSPACE_BACKEND=azure_blob
    AZURE_BLOB_ACCOUNT_URL=https://<account>.blob.core.windows.net
-   # AZURE_BLOB_CONTAINER=data-formulator
+   # AZURE_BLOB_CONTAINER=rivus
    ```
 
    The app uses [`DefaultAzureCredential`](https://learn.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential), which automatically picks up the Managed Identity.
@@ -264,7 +264,7 @@ If both `AZURE_BLOB_CONNECTION_STRING` and `AZURE_BLOB_ACCOUNT_URL` are set, the
 All workspace data is stored under `<datalake_root>/<sanitized_identity_id>/` inside the container:
 
 ```
-data-formulator/                          ← container
+rivus-ai/                          ← container
   workspaces/                             ← datalake_root (default)
     browser_550e8400.../                  ← anonymous user workspace
       workspace.yaml
@@ -281,14 +281,14 @@ data-formulator/                          ← container
 | `--workspace-backend` | `WORKSPACE_BACKEND` | `local` | `local` or `azure_blob` |
 | `--azure-blob-connection-string` | `AZURE_BLOB_CONNECTION_STRING` | — | Shared-key connection string |
 | `--azure-blob-account-url` | `AZURE_BLOB_ACCOUNT_URL` | — | Account URL for Entra ID auth |
-| `--azure-blob-container` | `AZURE_BLOB_CONTAINER` | `data-formulator` | Blob container name |
+| `--azure-blob-container` | `AZURE_BLOB_CONTAINER` | `rivus-ai` | Blob container name |
 
 
 ## Security Considerations for Production Deployment
 
 ⚠️ **IMPORTANT SECURITY WARNING FOR PRODUCTION DEPLOYMENT**
 
-When deploying Data Formulator to production, please be aware of the following security considerations:
+When deploying RIVUS to production, please be aware of the following security considerations:
 
 ### Database and Data Storage Security
 
@@ -317,12 +317,12 @@ For production deployment, consider:
 
 ```bash
 # For stateless deployment (recommended for public hosting)
-python -m data_formulator.app --disable-database
+python -m rivus_ai.app --disable-database
 ```
 
 ## Authentication Architecture
 
-Data Formulator supports a **hybrid identity system** that supports both anonymous and authenticated users.
+RIVUS supports a **hybrid identity system** that supports both anonymous and authenticated users.
 
 ### Identity Flow Overview
 

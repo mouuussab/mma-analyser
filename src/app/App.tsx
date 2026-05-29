@@ -54,7 +54,7 @@ import { alpha, createTheme, styled, ThemeProvider } from '@mui/material/styles'
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import ClearIcon from '@mui/icons-material/Clear';
 
-import { DataFormulatorFC } from '../views/DataFormulator';
+import { RivusFC } from '../views/Rivus';
 
 import SettingsIcon from '@mui/icons-material/Settings';
 import {
@@ -1383,10 +1383,10 @@ export const AppFC: FC<AppFCProps> = function AppFC(appProps) {
     let router = createBrowserRouter([
         {
             path: "/",
-            element: <DataFormulatorFC language={language} />,
+            element: <RivusFC language={language} />,
         }, {
             path: "*",
-            element: <DataFormulatorFC language={language} />,
+            element: <RivusFC language={language} />,
             errorElement: <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
                 <Typography color="gray" sx={{ margin: "150px auto" }}>An error has occurred, please <Link href="/">refresh the session</Link>. If the problem still exists, click close session.</Typography>
             </Box>

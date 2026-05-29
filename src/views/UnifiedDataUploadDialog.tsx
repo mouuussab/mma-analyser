@@ -1104,9 +1104,9 @@ export const UnifiedDataUploadDialog: React.FC<UnifiedDataUploadDialogProps> = (
                                 </Tooltip>
                             </ToggleButton>
                         </ToggleButtonGroup>
-                        {storeOnServer && !diskPersistenceDisabled && serverConfig.DATA_FORMULATOR_HOME
+                        {storeOnServer && !diskPersistenceDisabled && serverConfig.RIVUS_HOME
                             && serverConfig.WORKSPACE_BACKEND !== 'azure_blob' && (
-                            <Tooltip title={`${ui.openWorkspace}: ${serverConfig.DATA_FORMULATOR_HOME}`} placement="bottom">
+                            <Tooltip title={`${ui.openWorkspace}: ${serverConfig.RIVUS_HOME}`} placement="bottom">
                                 <IconButton
                                     size="small"
                                     onClick={() => {

@@ -4,7 +4,7 @@
         {
             "label": "Activate Virtual Environment",
             "type": "shell",
-            "command": "source /workspaces/data-formulator/venv/bin/activate",
+            "command": "source /workspaces/rivus-ai/venv/bin/activate",
             "problemMatcher": [],
             "group": {
                 "kind": "test",

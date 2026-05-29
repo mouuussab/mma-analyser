@@ -336,7 +336,7 @@ which model produced the spec.
                        for detailed style customization  (2% of edits)
 ```
 
-The chart spec is intentionally minimal. In Data Formulator, it's a small
+The chart spec is intentionally minimal. In RIVUS, it's a small
 JSON object returned alongside the data transformation code, so that
 precious tokens go where they matter most: data computation and
 transformation, not visualization plumbing.

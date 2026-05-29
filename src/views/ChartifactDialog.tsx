@@ -268,7 +268,7 @@ export const openChartifactViewer = async (chartifactMarkdown: string) => {
                     interactiveDocument?: any;
                 } = {
                     type: 'hostRenderRequest',
-                    title: 'Data Formulator Report',
+                    title: 'RIVUS Report',
                     markdown: chartifactMarkdown
                 };
 

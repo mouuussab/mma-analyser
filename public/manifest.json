@@ -1,11 +1,11 @@
 {
-  "short_name": "Data Formulator",
-  "name": "Data Formulator",
+  "short_name": "RIVUS",
+  "name": "RIVUS",
   "icons": [
     {
-      "src": "data-formulator-logo-128.png",
+      "src": "rivus-logo.png",
       "type": "image/png",
-      "sizes": "128x128"
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",

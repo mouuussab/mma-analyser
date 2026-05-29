@@ -59,7 +59,7 @@ export const About: FC<{}> = function About({ }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Install Locally via pip (opens in new tab)"
-                href="https://pypi.org/project/data-formulator/"
+                href="https://pypi.org/project/rivus-ai/"
             >Install Locally</Button>
             <Button size="large" variant="contained" color="primary" 
                 sx={{ textTransform: 'none' }}

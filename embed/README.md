@@ -1,4 +1,4 @@
-# Embed Data Formulator
+# Embed RIVUS
 
 First you'll need to build the bundle:
 ```
@@ -9,7 +9,7 @@ This puts the complete js file in the `dist` folder.
 
 ## Test bundle
 
-Next you can test to see the complete Data Formulator app by opening `/embed/index.html` in your browser. You can do this by double-clicking in your file explorer (this would use the `file://` protocol). 
+Next you can test to see the complete RIVUS app by opening `/embed/index.html` in your browser. You can do this by double-clicking in your file explorer (this would use the `file://` protocol). 
 
 To test cross-frame messaging, launch `postMessageTest.html` which hosts the app in an iframe, and has buttons to send commands such as `load data`.
 
@@ -55,7 +55,7 @@ def dfviz(df, tableName, serverUrl):
         const htmlContent = `<!DOCTYPE html>
 <html><body>
     <div id="root"></div>
-    <script src="{serverUrl}/DataFormulator.js" defer onload="parent.frameLoaded()" onerror="parent.frameError()">${{closeScriptTag}}
+    <script src="{serverUrl}/RIVUS.js" defer onload="parent.frameLoaded()" onerror="parent.frameError()">${{closeScriptTag}}
 </body></html>`;
 
         // Define global functions for onload and onerror events of the script
@@ -68,7 +68,7 @@ def dfviz(df, tableName, serverUrl):
         embedIframe.contentWindow.document.close();
     }});
     embedPromise.then((embedIframe) => {{
-        embedIframe.contentWindow.postMessage({{ actionName: 'setConfig', actionParams: {{ serverUrl: '{serverUrl}', popupConfig: {{ allowPopup: true, jsUrl: '{serverUrl}/DataFormulator.js' }} }} }}, '*');
+        embedIframe.contentWindow.postMessage({{ actionName: 'setConfig', actionParams: {{ serverUrl: '{serverUrl}', popupConfig: {{ allowPopup: true, jsUrl: '{serverUrl}/RIVUS.js' }} }} }}, '*');
         embedIframe.contentWindow.postMessage({{ actionName: 'loadData', actionParams: {{ tableName: '{tableName}', table }} }}, '*');
     }});
 </script>

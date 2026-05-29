@@ -13,5 +13,5 @@ where uv >nul 2>nul
 if %ERRORLEVEL% EQU 0 (
     uv run rivus-ai --port %FLASK_RUN_PORT% --dev
 ) else (
-    python -m data_formulator.app --port %FLASK_RUN_PORT% --dev
+    python -m rivus_ai.app --port %FLASK_RUN_PORT% --dev
 )
