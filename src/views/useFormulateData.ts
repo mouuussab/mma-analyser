@@ -71,7 +71,7 @@ function generateTableId(tables: DictTable[]): string {
 }
 
 /**
- * Shared hook for data formulation and idea streaming.
+ * Shared hook for chart formulation and idea streaming.
  * Used by both EncodingShelfCard (chart-aware formulation) and ChartRecBox (NL-driven formulation).
  */
 export function useFormulateData() {
@@ -363,7 +363,7 @@ export function useFormulateData() {
                     "timestamp": Date.now(),
                     "component": "chart builder",
                     "type": "error",
-                    "value": `Data formulation failed: ${data.error_message}`,
+                    "value": `Chart formulation failed: ${data.error_message}`,
                 }));
                 return;
             }
@@ -373,7 +373,7 @@ export function useFormulateData() {
                     "timestamp": Date.now(),
                     "component": "chart builder",
                     "type": "error",
-                    "value": "No result is returned from the data formulation agent. Please try again.",
+                    "value": "No result is returned from the chart builder agent. Please try again.",
                 }));
                 return;
             }
@@ -387,7 +387,7 @@ export function useFormulateData() {
                     "timestamp": Date.now(),
                     "type": "error",
                     "component": "chart builder",
-                    "value": "Data formulation failed, please try again.",
+                    "value": "Chart formulation failed, please try again.",
                     "code": data.results[0].code,
                     "detail": data.results[0].content,
                 }));
@@ -506,7 +506,7 @@ export function useFormulateData() {
                     "timestamp": Date.now(),
                     "component": "chart builder",
                     "type": "error",
-                    "value": `Data formulation timed out after ${config.formulateTimeoutSeconds} seconds. Consider breaking down the task, using a different model or prompt, or increasing the timeout limit.`,
+                    "value": `Chart formulation timed out after ${config.formulateTimeoutSeconds} seconds. Consider breaking down the task, using a different model or prompt, or increasing the timeout limit.`,
                     "detail": "Request exceeded timeout limit",
                 }));
             } else {
@@ -515,7 +515,7 @@ export function useFormulateData() {
                     "timestamp": Date.now(),
                     "component": "chart builder",
                     "type": "error",
-                    "value": "Data formulation failed, please try again.",
+                    "value": "Chart formulation failed, please try again.",
                     "detail": error.message,
                 }));
             }

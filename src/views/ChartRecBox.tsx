@@ -210,7 +210,7 @@ export const ChartRecBox: FC<ChartRecBoxProps> = function ({ tableId, placeHolde
                 "timestamp": Date.now(),
                 "type": "error",
                 "component": "chart builder",
-                "value": "No table selected for data formulation.",
+                "value": "No table selected for chart formulation.",
             }));
             return;
         }
@@ -241,7 +241,7 @@ export const ChartRecBox: FC<ChartRecBoxProps> = function ({ tableId, placeHolde
                     "timestamp": Date.now(),
                     "component": "chart builder",
                     "type": "success",
-                    "value": `Data formulation: "${displayInstruction}"`
+                    "value": `Chart formulation: "${displayInstruction}"`
                 }));
                 dispatch(dfActions.updateAgentWorkInProgress({
                     actionId, description: displayInstruction || instruction, status: 'completed', hidden: false,
@@ -252,7 +252,7 @@ export const ChartRecBox: FC<ChartRecBoxProps> = function ({ tableId, placeHolde
             onError: () => {
                 dispatch(dfActions.updateAgentWorkInProgress({
                     actionId, description: instruction, status: 'failed', hidden: false,
-                    message: { content: 'Data formulation failed.', role: 'error' }
+                    message: { content: 'Chart formulation failed.', role: 'error' }
                 }));
             },
             onFinally: () => {

@@ -402,7 +402,7 @@ export const EncodingShelfCard: FC<EncodingShelfCardProps> = function ({ chartId
     // Function to handle idea chip click
     const handleIdeaClick = (ideaText: string) => {
         setPrompt(ideaText);
-        // Automatically start the data formulation process
+        // Automatically start the chart formulation process
         deriveNewData(ideaText, 'ideate');
     };
 
@@ -534,7 +534,7 @@ export const EncodingShelfCard: FC<EncodingShelfCardProps> = function ({ chartId
                     "timestamp": Date.now(),
                     "component": "chart builder",
                     "type": "success",
-                    "value": `Data formulation for ${fieldNamesStr} succeeded.`
+                    "value": `Chart formulation for ${fieldNamesStr} succeeded.`
                 }));
                 dispatch(dfActions.updateAgentWorkInProgress({
                     actionId, description: displayInstruction || actionDescription, status: 'completed', hidden: false,
@@ -544,7 +544,7 @@ export const EncodingShelfCard: FC<EncodingShelfCardProps> = function ({ chartId
             onError: () => {
                 dispatch(dfActions.updateAgentWorkInProgress({
                     actionId, description: actionDescription, status: 'failed', hidden: false,
-                    message: { content: 'Data formulation failed.', role: 'error' }
+                    message: { content: 'Chart formulation failed.', role: 'error' }
                 }));
             },
             onFinally: () => {
