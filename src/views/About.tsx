@@ -55,7 +55,7 @@ export const About: FC<{}> = function About({ }) {
         <Box component="nav" aria-label="Primary actions" sx={{ display: 'flex', justifyContent: 'center', gap: 1.5, mb: 4, flexWrap: 'wrap' }}>
             <Button size="large" variant="outlined" color="primary" 
                 sx={{ textTransform: 'none' }}
-                startIcon={<Box component="img" sx={{ width: 20, height: 20 }} alt="" aria-hidden="true" src="/pip-logo.svg" />}
+                startIcon={<Box component="img" sx={{ width: 20, height: 20 }} alt="" aria-hidden="true" src="/rivus-icon.svg" />}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Install Locally via pip (opens in new tab)"

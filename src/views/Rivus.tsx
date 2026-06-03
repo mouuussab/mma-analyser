@@ -389,7 +389,7 @@ export const RivusFC = ({ language = "en" }: RivusProps) => {
             <Box component="nav" aria-label="Resources" sx={{ display: 'flex', justifyContent: 'center', gap: 1, mb: 3, flexWrap: 'wrap' }}>
                 <Button size="small" variant="text" color="primary"
                     sx={{ textTransform: 'none', fontSize: 13 }}
-                    startIcon={<Box component="img" sx={{ width: 15, height: 15 }} alt="" aria-hidden="true" src="/pip-logo.svg" />}
+                    startIcon={<Box component="img" sx={{ width: 15, height: 15 }} alt="" aria-hidden="true" src="/rivus-icon.svg" />}
                     target="_blank" rel="noopener noreferrer"
                     href="https://pypi.org/project/rivus-ai/"
                 >Install Locally</Button>
