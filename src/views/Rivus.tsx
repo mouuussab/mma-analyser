@@ -377,6 +377,9 @@ export const RivusFC = ({ language = "en" }: RivusProps) => {
             width: 'calc(100vw - 16px)', overflow: 'auto', display: 'flex', flexDirection: 'column', height: '100%',
         }}>
         <Box sx={{margin:'auto', pb: '5%', display: "flex", flexDirection: "column", textAlign: "center" }}>
+            <Box sx={{display: 'flex', mx: 'auto', mb: 2}}>
+                <Box component="img" src="/rivus-logo.svg" alt="RIVUS Logo" sx={{maxWidth: 400, height: 'auto'}} />
+            </Box>
             <Box sx={{display: 'flex', mx: 'auto'}}>
                 <Typography fontSize={84} sx={{ml: 2, letterSpacing: '0.05em'}}>{toolName}</Typography> 
             </Box>
