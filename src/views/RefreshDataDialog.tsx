@@ -423,6 +423,7 @@ export const RefreshDataDialog: React.FC<RefreshDataDialogProps> = ({
                     <Tab label={rddText[appLanguage].pasteData} sx={{ textTransform: 'none', fontSize: '0.875rem', minHeight: 48 }} />
                     <Tab label={rddText[appLanguage].uploadFile} sx={{ textTransform: 'none', fontSize: '0.875rem', minHeight: 48 }} />
                     <Tab label={rddText[appLanguage].fromUrl} sx={{ textTransform: 'none', fontSize: '0.875rem', minHeight: 48 }} />
+                    <Tab label={'From Data Lake'} sx={{ textTransform: 'none', fontSize: '0.875rem', minHeight: 48 }} />
                 </Tabs>
 
                 <TabPanel value={tabValue} index={0}>
@@ -575,6 +576,68 @@ export const RefreshDataDialog: React.FC<RefreshDataDialogProps> = ({
                             },
                         }}
                     />
+                </TabPanel>
+
+                <TabPanel value={tabValue} index={3}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                        <Typography variant="body2" color="text.secondary">Available datasets in the Data Lake</Typography>
+                        <Box id="datalake-list" sx={{ display: 'flex', flexDirection: 'column', gap: 1, mt: 1 }}>
+                            {/* Filled dynamically */}
+                        </Box>
+                        <Box sx={{ mt: 1 }}>
+                            <Button size="small" onClick={async () => {
+                                setIsLoading(true);
+                                setError(null);
+                                try {
+                                    const base = serverConfig?.DATALAKE_URL || 'http://localhost:8000';
+                                    const resp = await fetch(`${base}/datasets`);
+                                    if (!resp.ok) throw new Error('Failed to fetch datasets');
+                                    const json = await resp.json();
+                                    const listEl = document.getElementById('datalake-list');
+                                    if (listEl) listEl.innerHTML = '';
+                                    (json.objects || []).forEach((o:any) => {
+                                        const wrapper = document.createElement('div');
+                                        wrapper.className = 'dataset';
+                                        wrapper.style.border = '1px solid #e5e7eb';
+                                        wrapper.style.padding = '8px';
+                                        wrapper.style.borderRadius = '6px';
+                                        wrapper.style.display = 'flex';
+                                        wrapper.style.justifyContent = 'space-between';
+                                        wrapper.style.alignItems = 'center';
+                                        wrapper.innerHTML = `<div><strong>${o.key}</strong> <small>(${o.size} bytes)</small></div>`;
+                                        const btn = document.createElement('button');
+                                        btn.textContent = 'Import';
+                                        btn.onclick = async () => {
+                                            setIsLoading(true);
+                                            try {
+                                                const r = await fetch(`${base}/import`, {
+                                                    method: 'POST',
+                                                    headers: { 'Content-Type': 'application/json' },
+                                                    body: JSON.stringify({ bucket: json.bucket, key: o.key })
+                                                });
+                                                if (!r.ok) throw new Error(await r.text());
+                                                const payload = await r.json();
+                                                const rows = payload.rows || [];
+                                                if (rows.length === 0) {
+                                                    setError('Imported file had no rows or could not be parsed');
+                                                } else {
+                                                    processAndValidateData(rows);
+                                                }
+                                            } catch (err:any) {
+                                                setError(err.message || 'Import failed');
+                                            } finally { setIsLoading(false); }
+                                        };
+                                        wrapper.appendChild(btn);
+                                        if (listEl) listEl.appendChild(wrapper);
+                                    });
+                                } catch (err:any) {
+                                    setError(err.message || 'Failed to list datasets');
+                                } finally { setIsLoading(false); }
+                            }} sx={{ textTransform: 'none' }}>
+                                Refresh list
+                            </Button>
+                        </Box>
+                    </Box>
                 </TabPanel>
             </DialogContent>
             <DialogActions sx={{ px: 3, py: 2, gap: 1 }}>
