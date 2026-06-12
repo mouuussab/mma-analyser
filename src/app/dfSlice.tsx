@@ -653,22 +653,32 @@ export const dataFormulatorSlice = createSlice({
             
             state.tables = state.tables.map(t => {
                 if (t.id == tableId) {
-                    // Update metadata type inference based on new data
+                    let newNames = t.names;
                     let newMetadata = { ...t.metadata };
-                    for (let name of t.names) {
-                        if (newRows.length > 0 && name in newRows[0]) {
+                    
+                    if (newRows.length > 0) {
+                        newNames = Object.keys(newRows[0]);
+                        newMetadata = {};
+                        for (let name of newNames) {
+                            let oldMeta = t.metadata[name] || {};
                             newMetadata[name] = {
-                                ...newMetadata[name],
+                                ...oldMeta,
                                 type: inferTypeFromValueArray(newRows.map(r => r[name])),
                             };
                         }
+                        
+                        // Update concept shelf items
+                        state.conceptShelfItems = state.conceptShelfItems.filter(item => item.tableRef != tableId);
+                        let draftTable = { ...t, names: newNames, metadata: newMetadata } as DictTable;
+                        state.conceptShelfItems = [...state.conceptShelfItems, ...getDataFieldItems(draftTable)];
                     }
+                    
                     // Update lastRefreshed timestamp if source exists
                     const updatedSource = t.source ? { ...t.source, lastRefreshed: Date.now() } : undefined;
                     // Use provided content hash (from backend for virtual/DB tables) or compute locally
                     // For virtual tables, backend hash reflects full table; for stream tables, compute from actual rows
-                    const newContentHash = providedContentHash || computeContentHash(newRows, t.names);
-                    return { ...t, rows: newRows, metadata: newMetadata, source: updatedSource, contentHash: newContentHash };
+                    const newContentHash = providedContentHash || computeContentHash(newRows, newNames);
+                    return { ...t, rows: newRows, names: newNames, metadata: newMetadata, source: updatedSource, contentHash: newContentHash };
                 }
                 return t;
             });
@@ -683,18 +693,29 @@ export const dataFormulatorSlice = createSlice({
                 if (!update) return t;
                 const newRows = update.rows;
                 const providedContentHash = update.contentHash;
+                
+                let newNames = t.names;
                 let newMetadata = { ...t.metadata };
-                for (let name of t.names) {
-                    if (newRows.length > 0 && name in newRows[0]) {
+                
+                if (newRows.length > 0) {
+                    newNames = Object.keys(newRows[0]);
+                    newMetadata = {};
+                    for (let name of newNames) {
+                        let oldMeta = t.metadata[name] || {};
                         newMetadata[name] = {
-                            ...newMetadata[name],
+                            ...oldMeta,
                             type: inferTypeFromValueArray(newRows.map(r => r[name])),
                         };
                     }
+                    
+                    state.conceptShelfItems = state.conceptShelfItems.filter(item => item.tableRef != t.id);
+                    let draftTable = { ...t, names: newNames, metadata: newMetadata } as DictTable;
+                    state.conceptShelfItems = [...state.conceptShelfItems, ...getDataFieldItems(draftTable)];
                 }
+                
                 const updatedSource = t.source ? { ...t.source, lastRefreshed: Date.now() } : undefined;
-                const newContentHash = providedContentHash || computeContentHash(newRows, t.names);
-                return { ...t, rows: newRows, metadata: newMetadata, source: updatedSource, contentHash: newContentHash };
+                const newContentHash = providedContentHash || computeContentHash(newRows, newNames);
+                return { ...t, rows: newRows, names: newNames, metadata: newMetadata, source: updatedSource, contentHash: newContentHash };
             });
         },
         updateTableSource: (state, action: PayloadAction<{tableId: string, source: DataSourceConfig}>) => {
