@@ -141,6 +141,7 @@ export interface EncodingBoxProps {
 // the encoding boxes, allows 
 export const EncodingBox: FC<EncodingBoxProps> = function EncodingBox({ channel, chartId, tableId }) {
     let theme = useTheme();
+    const appLanguage = useAppLanguage();
 
     // use tables for infer domains
     const tables = useSelector((state: DataFormulatorState) => state.tables);
