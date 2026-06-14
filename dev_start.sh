@@ -32,11 +32,11 @@ fi
 # Start frontend (yarnpkg start)
 if command -v yarnpkg >/dev/null 2>&1; then
   echo "Starting frontend with: yarnpkg start"
-  (cd "$ROOT_DIR" && nohup yarnpkg start >"$FRONTEND_LOG" 2>&1 &)
+  nohup yarnpkg start >"$FRONTEND_LOG" 2>&1 &
   echo $! >"$FRONTEND_PID_FILE"
 elif command -v yarn >/dev/null 2>&1; then
   echo "yarnpkg not found; starting with yarn start"
-  (cd "$ROOT_DIR" && nohup yarn start >"$FRONTEND_LOG" 2>&1 &)
+  nohup yarn start >"$FRONTEND_LOG" 2>&1 &
   echo $! >"$FRONTEND_PID_FILE"
 else
   echo "Error: yarnpkg (or yarn) not found in PATH. Install dependencies with 'yarn' first." >&2

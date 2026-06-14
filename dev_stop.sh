@@ -26,4 +26,10 @@ if [ -f "$FRONTEND_PID_FILE" ]; then
   rm -f "$FRONTEND_PID_FILE"
 fi
 
+# Fallback cleanup just in case child processes were orphaned
+echo "Cleaning up any stranded processes..."
+pkill -f "rivus-ai --dev" || true
+pkill -f "rivus_ai.app --dev" || true
+pkill -f "vite" || true
+
 echo "Stopped. Check logs in $LOG_DIR if needed." 
